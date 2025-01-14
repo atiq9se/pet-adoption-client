@@ -1,13 +1,13 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
-const Main = () => {
+const Layout = () => {
     return (
         <div>
-            
+             <h2> layout</h2>
             <Outlet></Outlet>
         </div>
     );
 };
 
-export default Main;
+export default Layout;
