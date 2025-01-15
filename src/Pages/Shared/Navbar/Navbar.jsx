@@ -17,8 +17,9 @@ const Navbar = () => {
 
     const navOptions = <>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/menu'>Pet Listing</Link></li>
-        <li><Link to='/order/salad'>Donation Campaigns</Link></li>
+        <li><Link to='/pets'>Pet Listing</Link></li>
+        <li><Link to='/'>Donation Campaigns</Link></li>
+        <li><Link to='/login'>Login</Link></li>
         <li>
         <details>
           <summary>Parent</summary>
