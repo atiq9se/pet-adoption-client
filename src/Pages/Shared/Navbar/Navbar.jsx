@@ -1,40 +1,41 @@
-// import { useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-// import { AuthContext } from "../../provider/AuthProvider";
+
 import { CiShoppingCart } from "react-icons/ci";
-// import useCart from "../../hooks/useCart";
-// import useAuth from "../../hooks/useAuth";
+import useAuth from "../../../hooks/useAuth";
+
+
 
 const Navbar = () => {
-    // const { user, logOut } = useAuth();
-    // const [cart] = useCart();
+    const { user, logOut } = useAuth();
+  
 
-    // const handleSignOut = () => {
-    //     logOut()
-    //         .then(() => { })
-    //         .catch(errors => console.log(errors))
-    // }
+    const handleSignOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(errors => console.log(errors))
+    }
 
     const navOptions = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/pets'>Pet Listing</Link></li>
-        <li><Link to='/'>Donation Campaigns</Link></li>
+        <li><Link to='/donation-campaigns'>Donation Campaigns</Link></li>
         <li><Link to='/login'>Login</Link></li>
         <li>
         <details>
           <summary>Parent</summary>
           <ul className="p-2">
-            <li><a>Dashboard</a></li>
+            <li><Link to='/dashboard'>Dashboard</Link></li>
             <li><a>Submenu 2</a></li>
           </ul>
         </details>
       </li>
       <li>
         <details>
-          <summary>Login</summary>
+          <summary>Others</summary>
           <ul className="p-2">
-            <li><a>Dashboard</a></li>
-            <li><a>Logout</a></li>
+            <li><a>kdk</a></li>
+            <li><button onClick={handleSignOut}>Logout</button></li>
           </ul>
         </details>
       </li>
