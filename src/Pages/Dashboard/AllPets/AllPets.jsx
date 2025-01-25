@@ -2,37 +2,42 @@ import React from 'react';
 import usePets from '../../../hooks/usePets';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import useAuth from '../../../hooks/useAuth';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const AllPets = () => {
-    const [pets] = usePets();
+    const [pets, , refetch] = usePets();
+    const axiosSecure = useAxiosSecure();
 
 
-    const handleDeletePet = pet =>{
-            Swal.fire({
-                title: "Are you sure?",
-                text: "You won't be able to revert this!",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, delete it!"
-            }).then((result) => {
-                if (result.isConfirmed) {
-    
-                    axiosSecure.delete(`/users/${user._id}`)
-                        .then(res => {
-                            if (res.data.deletedCount > 0) {
-                                refetch();
-                                  Swal.fire({
-                                    title: "Deleted!",
-                                    text: "Your user has been deleted.",
-                                    icon: "success"
-                                  });
-                            }
-                        })
-                }
-            });
-        }
+    const handleDeletePet = (pet) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                const res = await axiosSecure.delete(`/pets/${pet._id}`);
+                console.log(res.data);
+
+                // axiosSecure.delete(`/users/${user._id}`)
+                //     .then(res => {
+                refetch();
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `${pet.name} has been deleted`,
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                // })
+            }
+        });
+    }
 
     return (
         <div>
@@ -56,36 +61,36 @@ const AllPets = () => {
                     </thead>
                     <tbody>
                         {
-                            pets.map((pet, index)=>
-                        <tr key={pet._id}>
-                            <td>
-                                {index+1}
-                            </td>
-                            <td>
-                                {pet.name}
-                            </td>
-                            <td>{pet.category}</td>
-                            <td>
-                                <div className="flex items-center gap-3">
-                                    <div className="avatar">
-                                        <div className="mask mask-squircle h-12 w-12">
-                                            <img
-                                                src={pet.image}
-                                                alt="Avatar Tailwind CSS Component" />
+                            pets.map((pet, index) =>
+                                <tr key={pet._id}>
+                                    <td>
+                                        {index + 1}
+                                    </td>
+                                    <td>
+                                        {pet.name}
+                                    </td>
+                                    <td>{pet.category}</td>
+                                    <td>
+                                        <div className="flex items-center gap-3">
+                                            <div className="avatar">
+                                                <div className="mask mask-squircle h-12 w-12">
+                                                    <img
+                                                        src={pet.image}
+                                                        alt="Avatar Tailwind CSS Component" />
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <button className="btn btn-ghost btn-xs">adoption{pet.adoption_status}</button>
-                            </td>
-                            <td>
-                                <button onClick={()=> handleDeleteUpdate(pet)} className="btn btn-ghost"><FaEdit className="text-orange-600"></FaEdit></button>
-                                <button onClick={()=> handleDeletePet(pet)} className="btn btn-ghost"><FaTrashAlt className="text-red-600"></FaTrashAlt></button>
-                            </td>
-                        </tr>)
+                                    </td>
+                                    <td>
+                                        <button className="btn btn-ghost btn-xs">adoption{pet.adoption_status}</button>
+                                    </td>
+                                    <td>
+                                        <button onClick={() => handleDeleteUpdate(pet)} className="btn btn-ghost"><FaEdit className="text-orange-600"></FaEdit></button>
+                                        <button onClick={() => handleDeletePet(pet)} className="btn btn-ghost"><FaTrashAlt className="text-red-600"></FaTrashAlt></button>
+                                    </td>
+                                </tr>)
                         }
-                        
+
                     </tbody>
                 </table>
             </div>
