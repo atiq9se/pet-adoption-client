@@ -14,7 +14,7 @@ const DashboardLayout = () => {
                         isAdmin ? <>
                             <li> <NavLink to="/dashboard/users"><FaUser></FaUser>All users</NavLink></li>
                             <li> <NavLink to="/dashboard/addpet"><FaCalendar></FaCalendar> Add a pet </NavLink></li>
-                            <li> <NavLink to="/dashboard/review"><FaShoppingCart></FaShoppingCart> My added pets</NavLink></li>
+                            <li> <NavLink to="/dashboard/allpets"><FaShoppingCart></FaShoppingCart> All Pets</NavLink></li>
                         </>
                             :
                             <>

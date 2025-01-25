@@ -9,6 +9,7 @@ import DashboardLayout from "../Layout/DashboardLayout";
 import AddPet from "../Pages/Dashboard/AddPet/AddPet";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import AdminRoute from "./AdminRoute";
+import AllPets from "../Pages/Dashboard/AllPets/AllPets";
 
 export const router = createBrowserRouter([
     {
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
           path:'addpet',
           element:<AddPet></AddPet>
           //element:<AdminRoute><AddPet></AddPet></AdminRoute>
+        },
+        {
+          path:'allpets',
+          element:<AdminRoute><AllPets></AllPets></AdminRoute>
         },
         {
           path:'users',
