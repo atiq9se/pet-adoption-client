@@ -4,6 +4,7 @@ import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import { Link } from 'react-router-dom';
 
 const AllPets = () => {
     const [pets, , refetch] = usePets();
@@ -85,7 +86,7 @@ const AllPets = () => {
                                         <button className="btn btn-ghost btn-xs">adoption{pet.adoption_status}</button>
                                     </td>
                                     <td>
-                                        <button onClick={() => handleDeleteUpdate(pet)} className="btn btn-ghost"><FaEdit className="text-orange-600"></FaEdit></button>
+                                        <Link to={`/dashboard/updatePet/${pet._id}`}><button onClick={() => handleDeleteUpdate(pet)} className="btn btn-ghost"><FaEdit className="text-orange-600"></FaEdit></button></Link>
                                         <button onClick={() => handleDeletePet(pet)} className="btn btn-ghost"><FaTrashAlt className="text-red-600"></FaTrashAlt></button>
                                     </td>
                                 </tr>)

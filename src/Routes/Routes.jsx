@@ -10,6 +10,7 @@ import AddPet from "../Pages/Dashboard/AddPet/AddPet";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import AdminRoute from "./AdminRoute";
 import AllPets from "../Pages/Dashboard/AllPets/AllPets";
+import UpdatePet from "../Pages/Dashboard/UpdatePet/UpdatePet";
 
 export const router = createBrowserRouter([
     {
@@ -46,6 +47,11 @@ export const router = createBrowserRouter([
         {
           path:'allpets',
           element:<AdminRoute><AllPets></AllPets></AdminRoute>
+        },
+        {
+          path:'updatePet/:id',
+          element:<AdminRoute><UpdatePet></UpdatePet></AdminRoute>,
+          loader: ({params})=> fetch(`http://localhost:5000/pets/${params.id}`)
         },
         {
           path:'users',
