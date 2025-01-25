@@ -8,6 +8,7 @@ import PrivateRoute from "./PrivateRoute";
 import DashboardLayout from "../Layout/DashboardLayout";
 import AddPet from "../Pages/Dashboard/AddPet/AddPet";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import AdminRoute from "./AdminRoute";
 
 export const router = createBrowserRouter([
     {
@@ -39,10 +40,11 @@ export const router = createBrowserRouter([
         {
           path:'addpet',
           element:<AddPet></AddPet>
+          //element:<AdminRoute><AddPet></AddPet></AdminRoute>
         },
         {
           path:'users',
-          element:<AllUsers></AllUsers>
+          element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
         }
       ]
     }
