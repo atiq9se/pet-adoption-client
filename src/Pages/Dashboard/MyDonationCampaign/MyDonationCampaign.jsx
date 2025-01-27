@@ -12,19 +12,18 @@ const MyDonationCampaign = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/campaigns?email=${user.email}`)
+        fetch(`http://localhost:5000/mycampaigns?email=${user.email}`)
             .then(res => res.json())
-            .then(data => setPets(data))
-
+            .then(data => setCampaigns(data))
 
     }, [user.email])
 
     return (
         <div>
             <Helmet>
-                <title>My added Pet </title>
+                <title>My Donation Campaign </title>
             </Helmet>
-            <h2> MY ADDED PETS</h2>
+            <h2> My Donation Campaign List</h2>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
@@ -42,32 +41,23 @@ const MyDonationCampaign = () => {
                     </thead>
                     <tbody>
                         {
-                            pets.map((pet, index) =>
-                                <tr key={pet._id}>
+                            campaigns.map((campaign, index) =>
+                                <tr key={campaign._id}>
                                     <td>
                                         {index + 1}
                                     </td>
                                     <td>
-                                        {pet.name}
+                                        {campaign.name}
                                     </td>
-                                    <td>{pet.category}</td>
+                                    <td>{campaign.donation_amount}</td>
                                     <td>
-                                        <div className="flex items-center gap-3">
-                                            <div className="avatar">
-                                                <div className="mask mask-squircle h-12 w-12">
-                                                    <img
-                                                        src={pet.image}
-                                                        alt="Avatar Tailwind CSS Component" />
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <button className="btn btn-ghost btn-xs">{campaign.paused_status}</button>
                                     </td>
                                     <td>
-                                        <button className="btn btn-ghost btn-xs">adoption{pet.adoption_status}</button>
+                                        <Link to={`/dashboard/updateCampaign/${campaign._id}`}><button className="btn btn-ghost"><FaEdit className="text-orange-600"></FaEdit></button></Link>
                                     </td>
                                     <td>
-                                        <Link to={`/dashboard/updatePet/${pet._id}`}><button className="btn btn-ghost"><FaEdit className="text-orange-600"></FaEdit></button></Link>
-                                        <button onClick={() => handleDeletePet(pet)} className="btn btn-ghost"><FaTrashAlt className="text-red-600"></FaTrashAlt></button>
+                                        views
                                     </td>
                                 </tr>)
                         }

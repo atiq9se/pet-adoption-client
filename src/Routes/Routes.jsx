@@ -14,6 +14,8 @@ import UpdatePet from "../Pages/Dashboard/UpdatePet/UpdatePet";
 import MyAddedPets from "../Pages/Dashboard/MyAddedPets/MyAddedPets";
 import PetListing from "../Pages/PetListing/PetListing";
 import CreateDonationCampaign from "../Pages/Dashboard/CreateDonationCampaign/CreateDonationCampaign";
+import MyDonationCampaign from "../Pages/Dashboard/MyDonationCampaign/MyDonationCampaign";
+import UpdateCampaign from "../Pages/Dashboard/UpdateCampaign/UpdateCampaign";
 
 export const router = createBrowserRouter([
     {
@@ -64,6 +66,15 @@ export const router = createBrowserRouter([
         {
           path:'createDonation',
           element:<PrivateRoute><CreateDonationCampaign></CreateDonationCampaign></PrivateRoute>
+        },
+        {
+          path:'myDonationCampaign',
+          element:<PrivateRoute><MyDonationCampaign></MyDonationCampaign></PrivateRoute>
+        },
+        {
+          path:'updateCampaign/:id',
+          element:<UpdateCampaign></UpdateCampaign>,
+          loader: ({params})=> fetch(`http://localhost:5000/campaigns/${params.id}`)
         },
         {
           path:'allpets',

@@ -108,8 +108,8 @@ const UpdatePet = () => {
                                 <label className="label">
                                     <span className="label-text text-cyan-500">Pet Name</span>
                                 </label>
-                                <input type="text" defaultValue={name} {...register('name', { required: true })} placeholder="Service Name" className="input input-bordered text-blue-800" required />
-                                {errors.name?.type === 'required' && <p className="text-red-600">Service name is required</p>}
+                                <input type="text" defaultValue={name} {...register('name', { required: true })} placeholder="Pet Name" className="input input-bordered text-blue-800" required />
+                                {errors.name?.type === 'required' && <p className="text-red-600">Pet name is required</p>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
