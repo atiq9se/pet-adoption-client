@@ -11,6 +11,9 @@ import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import AdminRoute from "./AdminRoute";
 import AllPets from "../Pages/Dashboard/AllPets/AllPets";
 import UpdatePet from "../Pages/Dashboard/UpdatePet/UpdatePet";
+import MyAddedPets from "../Pages/Dashboard/MyAddedPets/MyAddedPets";
+import PetListing from "../Pages/PetListing/PetListing";
+import CreateDonationCampaign from "../Pages/Dashboard/CreateDonationCampaign/CreateDonationCampaign";
 
 export const router = createBrowserRouter([
     {
@@ -20,6 +23,10 @@ export const router = createBrowserRouter([
         {
             path:'/',
             element:<Home></Home>
+        },
+        {
+            path:'/petListing',
+            element:<PetListing></PetListing>
         },
         {
             path:'/login',
@@ -45,12 +52,26 @@ export const router = createBrowserRouter([
           //element:<AdminRoute><AddPet></AddPet></AdminRoute>
         },
         {
+          path:'myAddedPets',
+          element:<MyAddedPets></MyAddedPets>
+          //element:<AdminRoute><AddPet></AddPet></AdminRoute>
+        },
+        {
+          path:'myAddedPets',
+          element:<MyAddedPets></MyAddedPets>
+          //element:<AdminRoute><AddPet></AddPet></AdminRoute>
+        },
+        {
+          path:'createDonation',
+          element:<PrivateRoute><CreateDonationCampaign></CreateDonationCampaign></PrivateRoute>
+        },
+        {
           path:'allpets',
           element:<AdminRoute><AllPets></AllPets></AdminRoute>
         },
         {
           path:'updatePet/:id',
-          element:<AdminRoute><UpdatePet></UpdatePet></AdminRoute>,
+          element:<UpdatePet></UpdatePet>,
           loader: ({params})=> fetch(`http://localhost:5000/pets/${params.id}`)
         },
         {

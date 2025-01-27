@@ -1,16 +1,27 @@
-import React from 'react';
-import usePets from '../../../hooks/usePets';
-import { FaEdit, FaTrashAlt } from 'react-icons/fa';
-import Swal from 'sweetalert2';
-import useAuth from '../../../hooks/useAuth';
-import useAxiosSecure from '../../../hooks/useAxiosSecure';
-import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../provider/AuthProvider";
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
+import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
-const AllPets = () => {
-    const [pets, , refetch] = usePets();
+
+
+const MyAddedPets = () => {
+
+    const { user } = useContext(AuthContext)
+    const [pets, setPets] = useState([])
     const axiosSecure = useAxiosSecure();
 
+    useEffect(() => {
+
+        fetch(`http://localhost:5000/myAddedPets?email=${user.email}`)
+            .then(res => res.json())
+            .then(data => setPets(data))
+
+
+    }, [user.email])
 
     const handleDeletePet = (pet) => {
         Swal.fire({
@@ -44,18 +55,16 @@ const AllPets = () => {
     return (
         <div>
             <Helmet>
-                <title>All Pet </title>
+                <title>My added Pet </title>
             </Helmet>
-            <h2>All Pets</h2>
+            <h2> MY ADDED PETS</h2>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
                     <thead>
                         <tr>
                             <th>
-                                <label>
-                                    <input type="checkbox" className="checkbox" />
-                                </label>
+                                #
                             </th>
                             <th>Name</th>
                             <th>Category</th>
@@ -90,7 +99,7 @@ const AllPets = () => {
                                         <button className="btn btn-ghost btn-xs">adoption{pet.adoption_status}</button>
                                     </td>
                                     <td>
-                                        <Link to={`/dashboard/updatePet/${pet._id}`}><button onClick={() => handleDeleteUpdate(pet)} className="btn btn-ghost"><FaEdit className="text-orange-600"></FaEdit></button></Link>
+                                        <Link to={`/dashboard/updatePet/${pet._id}`}><button className="btn btn-ghost"><FaEdit className="text-orange-600"></FaEdit></button></Link>
                                         <button onClick={() => handleDeletePet(pet)} className="btn btn-ghost"><FaTrashAlt className="text-red-600"></FaTrashAlt></button>
                                     </td>
                                 </tr>)
@@ -103,4 +112,4 @@ const AllPets = () => {
     );
 };
 
-export default AllPets;
+export default MyAddedPets;

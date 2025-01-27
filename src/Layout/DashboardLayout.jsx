@@ -19,11 +19,11 @@ const DashboardLayout = () => {
                             :
                             <>
                                 <li> <NavLink to="/dashboard/addpet"><FaCalendar></FaCalendar> Add a pet </NavLink></li>
-                                <li> <NavLink to="/dashboard/review"><FaShoppingCart></FaShoppingCart> My added pets</NavLink></li>
-                                <li> <NavLink to="/dashboard/adminHome"><FaAd></FaAd> Adoption Request</NavLink></li>
-                                <li> <NavLink to="/dashboard/addItems"><FaList></FaList> Create Donation Campaign</NavLink></li>
-                                <li> <NavLink to="/dashboard/manage"><FaList></FaList>My Donation Campaigns</NavLink></li>
-                                <li> <NavLink to="/dashboard/manage"><FaList></FaList>My Donations</NavLink></li>
+                                <li> <NavLink to="/dashboard/myAddedPets"><FaShoppingCart></FaShoppingCart> My added pets</NavLink></li>
+                                <li> <NavLink to="/dashboard/adoptionRequest"><FaAd></FaAd> Adoption Request</NavLink></li>
+                                <li> <NavLink to="/dashboard/createDonation"><FaList></FaList> Create Donation Campaign</NavLink></li>
+                                <li> <NavLink to="/dashboard/myDonationCampaign"><FaList></FaList>My Donation Campaigns</NavLink></li>
+                                <li> <NavLink to="/dashboard/myDonation"><FaList></FaList>My Donations</NavLink></li>
                             </>
                     }
 

@@ -1,9 +1,8 @@
-
+import { Helmet } from "react-helmet-async";
 import { useForm } from 'react-hook-form';
 import { useContext } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import Swal from "sweetalert2";
-import { Helmet } from "react-helmet-async";
 import { useNavigate } from 'react-router-dom';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
@@ -11,7 +10,7 @@ import useAxiosSecure from '../../../hooks/useAxiosSecure';
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?expiration=600&key=${image_hosting_key}`;
 
-const AddPet = () => {
+const CreateDonationCampaign = () => {
     const { user } = useContext(AuthContext)
     const navigate = useNavigate();
     const axiosPublic = useAxiosPublic();
@@ -27,75 +26,49 @@ const AddPet = () => {
             }
         });
         if(res.data.success){
-            const petItem ={
+            const campaignItem ={
                 name:data.name,
-                age: parseFloat(data.age),
-                category: data.category,
                 image: res.data.data.display_url,
-                adoption_status: data.adoption_status,
-                location: data.location,
+                donation_amount: parseFloat(data.donation_amount),
+                last_date: data.last_date,
                 short_description: data.short_description,
                 long_description: data.long_description,
                 user_name: data.user_name,
                 user_email: data.user_email,
+                paused_status: data.paused_status,
                 timestamp: Date.now()
 
             }
-            const petsRes = await axiosSecure.post('/pets', petItem);
-            console.log(petsRes.data)
-            if(petsRes.data.insertedId){
+            const campaignsRes = await axiosSecure.post('/campaigns', campaignItem);
+            console.log(campaignsRes.data)
+            if(campaignsRes.data.insertedId){
                 reset();
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: `${data.name} is added to the pets`,
+                    title: 'Create Donation Campaign is added successfully',
                     showConfirmButton: false,
                     timer: 1500
                   });
             }
         }
         console.log(res.data)
-        // const service_photo = data.service_photo;
-        // const service_name = data.service_name;
-        // const price = data.price;
-        // const service_area = data.service_area;
-        // const description = data.description;
-        // const provider_name = user.displayName;
-        // const provider_email = user.email;
-        // const provider_image = user.photoURL;
-        // const newService = { service_photo, service_name, price, service_area, description, provider_name, provider_email, provider_image }
 
-        // fetch('https:/services', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(newService)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         Swal.fire({
-        //             title: "Service adding Successfully",
-        //             icon: "success"
-        //         });
-
-        //     })
-        // navigate('/pet')
 
     }
     return (
-        <>
+        <div>
             <Helmet>
-                <title>Add Pet Pet-adoption</title>
+                <title>Create Donation Campaign</title>
             </Helmet>
             <div className="hero px-5">
                 <div className="card w-full shadow-2xl my-8 z-10">
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-                        <h3 className="text-center text-cyan-600 font-bold md:text-3xl text-xl mb-4">ADD Pet</h3>
+                        <h3 className="text-center text-cyan-600 font-bold md:text-3xl text-xl mb-4">Create Donation Campaign</h3>
                         <div className="grid md:grid-cols-3 grid-cols-1 gap-6">
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text text-cyan-500">Image of the Pet</span>
+                                    <span className="label-text text-cyan-500">Pet Picture</span>
                                 </label>
                                 <input type="file" {...register("image",
                                     {
@@ -113,30 +86,17 @@ const AddPet = () => {
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text text-cyan-500">Pet Age</span>
+                                    <span className="label-text text-cyan-500">Maximum Donation Amount</span>
                                 </label>
-                                <input type="text" {...register('age', { required: true })} placeholder="Age" className="input input-bordered text-blue-800" required />
-                                {errors.age?.type === 'required' && <p className="text-red-600">Pet age is required</p>}
+                                <input type="text" {...register('donation_amount', { required: true })} placeholder="Maximum Donation Amount" className="input input-bordered text-blue-800" required />
+                                {errors.donation_amount?.type === 'required' && <p className="text-red-600">Maximum Donation Amount is required</p>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text text-cyan-500">Pet Category</span>
+                                    <span className="label-text text-cyan-500"> Last date of donation</span>
                                 </label>
-                                <select defaultValue="default" {...register('category')} className='select select-bordered w-full'>
-                                    <option disabled value="default">Select a category</option>
-                                    <option value="dog">Dog</option>
-                                    <option value="cat">Cat</option>
-                                    <option value="fish">Fish</option>
-                                    <option value="rabbit">Rabbit</option>
-                                </select>
-                            </div>
-
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text text-cyan-500">Location</span>
-                                </label>
-                                <input type="text" {...register('location', { required: true })} placeholder="Location Area" className="input input-bordered text-blue-800" required />
-                                {errors.location?.type === 'required' && <p className="text-red-600">Location area is required</p>}
+                                <input type="date" {...register('last_date', { required: true })} name="last_date" placeholder=" Last date of donation" className="input input-bordered text-blue-800" required />
+                                {errors.last_date?.type === 'required' && <p className="text-red-600"> Last date of donation is required</p>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -152,14 +112,7 @@ const AddPet = () => {
                                 <textarea {...register('long_description', { required: true })} className="textarea textarea-bordered text-blue-800" placeholder="Description" required></textarea>
                                 {errors.long_description?.type === 'required' && <p className="text-red-600">Long Description is required</p>}
                             </div>
-                            {/* <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text text-cyan-500"> Date Time</span>
-                                </label>
-                                <input type="date" {...register('time', { required: true })} name="taking_date" placeholder="Service Taking Date" className="input input-bordered text-blue-800" required />
-                                <input type="time" {...register('time', { required: true })} name="taking_date" placeholder="Service Taking Date" className="input input-bordered text-blue-800" required />
-                                {errors.time?.type === 'required' && <p className="text-red-600">Time area is required</p>}
-                            </div> */}
+                            
 
                             <div className="form-control">
                                 <label className="label">
@@ -173,9 +126,9 @@ const AddPet = () => {
                                 </label>
                                 <input type="text" {...register('user_name', { required: true })} name="user_name" value={user.displayName} placeholder="Service Name" className="input input-bordered text-blue-800" required />
                             </div>
-                            <select {...register('adoption_status')} className="select select-bordered w-full max-w-xs hidden">
-                                <option selected value="false">Adoption false</option>
-                                <option value="">True</option>
+                            <select {...register('paused_status')} className="select select-bordered w-full max-w-xs hidden">
+                                <option selected value="unpaused">Unpaused donation campaign</option>
+                                <option value="paused">Paused donation campaign</option>
                             </select>
                         </div>
                         <div className="mt-5 text-center">
@@ -184,8 +137,9 @@ const AddPet = () => {
                     </form>
                 </div >
             </div >
-        </>
+
+        </div>
     );
 };
 
-export default AddPet;
+export default CreateDonationCampaign;

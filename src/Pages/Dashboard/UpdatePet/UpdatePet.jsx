@@ -11,7 +11,7 @@ const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?expiration=600&key=${image_hosting_key}`;
 
 const UpdatePet = () => {
-   // const { name, category, short_description, long_description, age, image, location, adoption_status, _id } = useLoaderData();
+    const { name, category, short_description, long_description, age, image, location, adoption_status, _id } = useLoaderData();
     const petItem = useLoaderData();
     console.log(petItem);
     const { user } = useContext(AuthContext)
@@ -101,7 +101,7 @@ const UpdatePet = () => {
                                 <label className="label">
                                     <span className="label-text text-cyan-500">Image of the Pet</span>
                                 </label>
-                                <input defaultValue={image} type="file" {...register("image")} placeholder="Pet Image URL" className="input input-bordered text-blue-800" />
+                                <input type="file" {...register("image")} placeholder="Pet Image URL" className="input input-bordered text-blue-800" />
                                 
                             </div>
                             <div className="form-control">
