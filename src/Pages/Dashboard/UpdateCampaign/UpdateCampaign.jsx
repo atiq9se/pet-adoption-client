@@ -62,7 +62,7 @@ const UpdateCampaign = () => {
     return (
         <div>
             <Helmet>
-                <title>Update Pet </title>
+                <title>Update doantion campaign </title>
             </Helmet>
             <div className="hero px-5">
                 <div className="card w-full shadow-2xl my-8 z-10">

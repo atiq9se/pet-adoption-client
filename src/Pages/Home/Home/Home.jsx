@@ -1,4 +1,10 @@
 import { Helmet } from 'react-helmet-async';
+import Banner from '../Banner/Banner';
+import Category from '../Category/Category';
+import About from '../About/About';
+import CallToAction from '../CallToAction/CallToAction';
+import PrivacyPolicy from '../PrivacyPolicy/PrivacyPolicy';
+import TermOfUse from '../TermOfUse/TermOfUse';
 
 const Home = () => {
     return (
@@ -6,12 +12,13 @@ const Home = () => {
             <Helmet>
                 <title>Home Pet-adoption</title>
             </Helmet>
-            <h2 className='text-orange-900'>This is home</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas dolorum deleniti repellendus cum ad quod ea voluptates praesentium? Nisi culpa mollitia impedit magni voluptatibus recusandae ab delectus cumque tempore eveniet?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas dolorum deleniti repellendus cum ad quod ea voluptates praesentium? Nisi culpa mollitia impedit magni voluptatibus recusandae ab delectus cumque tempore eveniet?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas dolorum deleniti repellendus cum ad quod ea voluptates praesentium? Nisi culpa mollitia impedit magni voluptatibus recusandae ab delectus cumque tempore eveniet?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas dolorum deleniti repellendus cum ad quod ea voluptates praesentium? Nisi culpa mollitia impedit magni voluptatibus recusandae ab delectus cumque tempore eveniet?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas dolorum deleniti repellendus cum ad quod ea voluptates praesentium? Nisi culpa mollitia impedit magni voluptatibus recusandae ab delectus cumque tempore eveniet?</p>
+            <Banner></Banner>
+            <Category></Category>
+            <CallToAction></CallToAction>
+            <About></About>
+            <PrivacyPolicy></PrivacyPolicy>
+            <TermOfUse></TermOfUse>
+            
         </div>
     );
 };

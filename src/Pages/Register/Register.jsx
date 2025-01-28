@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from '../../provider/AuthProvider';
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import loginImg from '../../assets/login/login.png'
 
 import SocialLogin from '../../components/socialLogin';
 
@@ -62,17 +63,17 @@ const Register = () => {
             <Helmet>
                 <title>Login Pet-adoption</title>
             </Helmet>
+
+            
             <div className="hero bg-base-200 min-h-screen">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">Sign up now!</h1>
-                        <p className="py-6">
-                            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                            quasi. In deleniti eaque aut repudiandae et a id nisi.
-                        </p>
+                        
+                        <img src={loginImg} alt="" />
                     </div>
                     <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+                        <h1 className="text-3xl font-bold">Sign up now!</h1>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
@@ -115,8 +116,8 @@ const Register = () => {
                                 <input type="submit" className="btn btn-primary" value="Sign Up" />
                             </div>
                         </form>
-                        <p className="p-4">already register? <Link to='/login'>Sign In</Link></p>
-                        <SocialLogin></SocialLogin>
+                        <p className="px-4 pb-4">You have any account please? <Link to='/login'>Sign In</Link></p>
+                        
                     </div>
                 </div>
             </div>

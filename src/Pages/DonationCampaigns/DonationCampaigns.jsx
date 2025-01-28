@@ -10,7 +10,7 @@ const DonationCampaigns = () => {
       <Helmet>
         <title>Donation Campaigns</title>
       </Helmet>
-      <h2>Donation Campaigns</h2>
+      <h3 className='lg:text-4xl text-xl text-center font-bold py-8'>Donation Campaigns</h3>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
         {
           campaigns.map(campaign =>

@@ -39,29 +39,17 @@ const Navbar = () => {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/petListing'>Pet Listing</Link></li>
         <li><Link to='/donation-campaigns'>Donation Campaigns</Link></li>
-        <li><Link to='/login'>Login</Link></li>
-        <li>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2">
-            <li><Link to='/dashboard'>Dashboard</Link></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </details>
-      </li>
-      <li>
-        <details>
-          <summary>Others</summary>
-          <ul className="p-2">
-            <li><a>kdk</a></li>
-            <li><button onClick={handleSignOut}>Logout</button></li>
-          </ul>
-        </details>
-      </li>
- 
-        {/* {
-            user ? <><span>{user?.displayName}</span><img src={user.photoURL} alt="" className="w-12" /><button onClick={handleSignOut}>LOGOUT</button></> : <><li><Link to='/login'>Login</Link></li></>
-        } */}
+        {
+            user ?  <li>
+            <details>
+              <summary><img src={user.photoURL} alt="" className="w-8 h-8 rounded-full" /></summary>
+              <ul className="p-2">
+                <li><Link to='/dashboard'>Dashboard</Link></li>
+                <li><button onClick={handleSignOut}>Logout</button></li>
+              </ul>
+            </details>
+          </li> : <><li><Link to='/login'>Login</Link></li></>
+        }
     </>
 
 
@@ -91,14 +79,14 @@ const Navbar = () => {
                 </div>
                 <a className="btn btn-ghost text-xl">Pet Adoption </a>
             </div>
-            <div className="navbar-center hidden lg:flex">
+            <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     {navOptions}
                 </ul>
             </div>
-            <div className="navbar-end">
+            {/* <div className="navbar-end">
                 <a className="btn">Button</a>
-            </div>
+            </div> */}
         </div>
     );
 };

@@ -6,6 +6,13 @@ import Swal from "sweetalert2";
 import { useNavigate } from 'react-router-dom';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import { EditorProvider, FloatingMenu, BubbleMenu } from '@tiptap/react'
+import StarterKit from '@tiptap/starter-kit'
+
+// define your extension array
+const extensions = [StarterKit]
+
+
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?expiration=600&key=${image_hosting_key}`;
@@ -107,6 +114,10 @@ const CreateDonationCampaign = () => {
                                 <label className="label">
                                     <span className="label-text text-cyan-500">Long Description</span>
                                 </label>
+                                <EditorProvider extensions={extensions}>
+      <FloatingMenu editor={null}>This is the floating menu</FloatingMenu>
+      <BubbleMenu editor={null}>This is the bubble menu</BubbleMenu>
+    </EditorProvider>
                                 <textarea {...register('long_description', { required: true })} className="textarea textarea-bordered text-blue-800" placeholder="Description" required></textarea>
                                 {errors.long_description?.type === 'required' && <p className="text-red-600">Long Description is required</p>}
                             </div>
