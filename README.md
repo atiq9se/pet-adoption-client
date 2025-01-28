@@ -1,8 +1,12 @@
-# React + Vite
+Website name: Pet Adoption
+Website live link: https://b10-a12-client.web.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a dynamic website where individuals can easily search for, connect with, and adopt pets in need of loving homes.
 
-Currently, two official plugins are available:
+.All device responsive website,
+.React base website,
+.Google and email, password Sign-up/login feature inclued 
+.User add adoption pet, Donation Campaign, update and deleted
+.Admin see all users, all adoption pets, all donation campaign.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+assignment12_category_009
