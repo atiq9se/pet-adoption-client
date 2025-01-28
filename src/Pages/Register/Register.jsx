@@ -6,8 +6,6 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import loginImg from '../../assets/login/login.png'
 
-import SocialLogin from '../../components/socialLogin';
-
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 
 

@@ -3,47 +3,46 @@ import cat from '../../../assets/category/cat.jpg'
 import rabbit from '../../../assets/category/rabbit.jpg'
 import horses from '../../../assets/category/horses.jpg'
 import goats from '../../../assets/category/goats.jpg'
-import { FaCat, FaDog, FaHorse } from 'react-icons/fa'
-import { GiGoat, GiRabbit } from 'react-icons/gi'
+import { Link } from 'react-router-dom'
 
 const Category = () => {
     return (
         <div className="lg:px-24 md:px-12 px-6 py-12 mt-8">
             <h2 className='text-center md:text-5xl text-xl pb-8'>ALL PET ADOPTION CATEGORY</h2>
             <div className='grid md:grid-cols-5 grid-cols-1 gap-5'>
-                <div className="card bg-base-100 shadow-xl">
+                <Link to='/petListing' className="card bg-base-100 shadow-xl">
                     <figure>
                         <img src={dog} alt="" />
                     </figure>
                     <div className="card-body">
                         <h2 className="card-title">Dog</h2>
                     </div>
-                </div>
-                <div className="card bg-base-100 shadow-xl">
+                </Link>
+                <Link to='/petListing' className="card bg-base-100 shadow-xl">
                     <figure>
                         <img src={cat} alt="" />
                     </figure>
                     <div className="card-body">
                         <h2 className="card-title">Cat</h2>
                     </div>
-                </div>
-                <div className="card bg-base-100 shadow-xl">
+                </Link>
+                <Link to='/petListing' className="card bg-base-100 shadow-xl">
                     <figure>
                     <img src={rabbit} alt="" />
                     </figure>
                     <div className="card-body">
                         <h2 className="card-title">Rabbit</h2>
                     </div>
-                </div>
-                <div className="card bg-base-100 shadow-xl">
+                </Link>
+                <Link to='/petListing' className="card bg-base-100 shadow-xl">
                     <figure>
                         <img src={horses} alt="" />
                     </figure>
                     <div className="card-body">
                         <h2 className="card-title">Horses</h2>
                     </div>
-                </div>
-                <div className="card bg-base-100 shadow-xl">
+                </Link>
+                <Link to='/petListing' className="card bg-base-100 shadow-xl">
                     <figure>
                     <img src={goats} alt="" />
                     </figure>
@@ -51,7 +50,7 @@ const Category = () => {
                     <div className="card-body">
                         <h2 className="card-title font-bold">Goats</h2>
                     </div>
-                </div>
+                </Link>
             </div>
         </div>
     );

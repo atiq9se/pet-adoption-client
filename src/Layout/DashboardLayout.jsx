@@ -14,20 +14,18 @@ const DashboardLayout = () => {
                         isAdmin ? <>
                             <li> <NavLink to="/dashboard/users"><FaUser></FaUser>All users</NavLink></li>
                             <li> <NavLink to="/dashboard/allpets"><FaDog></FaDog> All Pets</NavLink></li>
-                            <li> <NavLink to="/dashboard/allcampaigns"><FaDog></FaDog> All Donation Campaigns</NavLink></li>
+                            <li> <NavLink to="/dashboard/allcampaigns"><FaAd></FaAd> All Donation Campaigns</NavLink></li>
                         </>
                             :
                             <>
-                                <li> <NavLink to="/dashboard/addpet"><FaCalendar></FaCalendar> Add a pet </NavLink></li>
-                                <li> <NavLink to="/dashboard/myAddedPets"><FaShoppingCart></FaShoppingCart> My added pets</NavLink></li>
+                                <li> <NavLink to="/dashboard/addpet"><FaDog></FaDog> Add a pet </NavLink></li>
+                                <li> <NavLink to="/dashboard/myAddedPets"><FaDog></FaDog> My added pets</NavLink></li>
                                 <li> <NavLink to="/dashboard/adoptionRequest"><FaAd></FaAd> Adoption Request</NavLink></li>
                                 <li> <NavLink to="/dashboard/createDonation"><FaList></FaList> Create Donation Campaign</NavLink></li>
                                 <li> <NavLink to="/dashboard/myDonationCampaign"><FaList></FaList>My Donation Campaigns</NavLink></li>
                                 <li> <NavLink to="/dashboard/myDonation"><FaList></FaList>My Donations</NavLink></li>
                             </>
                     }
-
-
 
                     <div className="divider"></div>
                     <li> <NavLink to="/"><FaHome></FaHome> Home</NavLink></li>

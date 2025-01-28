@@ -17,83 +17,99 @@ import CreateDonationCampaign from "../Pages/Dashboard/CreateDonationCampaign/Cr
 import MyDonationCampaign from "../Pages/Dashboard/MyDonationCampaign/MyDonationCampaign";
 import UpdateCampaign from "../Pages/Dashboard/UpdateCampaign/UpdateCampaign";
 import AllCampaigns from "../Pages/Dashboard/AllCampaigns/AllCampaigns";
+import AdoptionRequest from "../Pages/Dashboard/AdoptionRequest/AdoptionRequest";
+import MyDonation from "../Pages/Dashboard/MyDonation/MyDonation";
+import PetDetails from "../Pages/PetDetails/PetDetails";
+import CampaignDetails from "../Pages/CampaignDetails/CampaignDetails";
 
 export const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Layout></Layout>,
-      children:[
-        {
-            path:'/',
-            element:<Home></Home>
-        },
-        {
-            path:'/petListing',
-            element:<PetListing></PetListing>
-        },
-        {
-            path:'/login',
-            element:<Login></Login>
-        },
-        {
-            path:'/register',
-            element:<Register></Register>
-        },
-        {
-            path:'/donation-campaigns',
-            element:<DonationCampaigns></DonationCampaigns>
-          }
-      ]
-    },
-    {
-      path:'dashboard',
-      element:<DashboardLayout></DashboardLayout>,
-      children:[
-        {
-          path:'addpet',
-          element:<AddPet></AddPet>
-          //element:<AdminRoute><AddPet></AddPet></AdminRoute>
-        },
-        {
-          path:'myAddedPets',
-          element:<MyAddedPets></MyAddedPets>
-          //element:<AdminRoute><AddPet></AddPet></AdminRoute>
-        },
-        {
-          path:'myAddedPets',
-          element:<MyAddedPets></MyAddedPets>
-          //element:<AdminRoute><AddPet></AddPet></AdminRoute>
-        },
-        {
-          path:'createDonation',
-          element:<PrivateRoute><CreateDonationCampaign></CreateDonationCampaign></PrivateRoute>
-        },
-        {
-          path:'myDonationCampaign',
-          element:<PrivateRoute><MyDonationCampaign></MyDonationCampaign></PrivateRoute>
-        },
-        {
-          path:'allcampaigns',
-          element:<PrivateRoute><AllCampaigns></AllCampaigns></PrivateRoute>
-        },
-        {
-          path:'updateCampaign/:id',
-          element:<UpdateCampaign></UpdateCampaign>,
-          loader: ({params})=> fetch(`http://localhost:5000/campaigns/${params.id}`)
-        },
-        {
-          path:'allpets',
-          element:<AdminRoute><AllPets></AllPets></AdminRoute>
-        },
-        {
-          path:'updatePet/:id',
-          element:<UpdatePet></UpdatePet>,
-          loader: ({params})=> fetch(`http://localhost:5000/pets/${params.id}`)
-        },
-        {
-          path:'users',
-          element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
-        }
-      ]
-    }
-  ]);
+  {
+    path: "/",
+    element: <Layout></Layout>,
+    children: [
+      {
+        path: '/',
+        element: <Home></Home>
+      },
+      {
+        path: '/petListing',
+        element: <PetListing></PetListing>
+      },
+      {
+        path: '/petDetails/:id',
+        element: <PetDetails></PetDetails>,
+        loader: ({ params }) => fetch(`http://localhost:5000/pets/${params.id}`)
+      },
+      {
+        path: '/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/register',
+        element: <Register></Register>
+      },
+      {
+        path: '/donation-campaigns',
+        element: <DonationCampaigns></DonationCampaigns>
+      },
+      {
+        path: '/campaignDetails/:id',
+        element: <CampaignDetails></CampaignDetails>,
+        loader: ({ params }) => fetch(`http://localhost:5000/campaigns/${params.id}`)
+      },
+    ]
+  },
+  {
+    path: 'dashboard',
+    element: <DashboardLayout></DashboardLayout>,
+    children: [
+      {
+        path: 'addpet',
+        element: <AddPet></AddPet>
+        //element:<AdminRoute><AddPet></AddPet></AdminRoute>
+      },
+      {
+        path: 'myAddedPets',
+        element: <MyAddedPets></MyAddedPets>
+      },
+      {
+        path: 'adoptionRequest',
+        element: <AdoptionRequest></AdoptionRequest>
+      },
+      {
+        path: 'createDonation',
+        element: <PrivateRoute><CreateDonationCampaign></CreateDonationCampaign></PrivateRoute>
+      },
+      {
+        path: 'myDonationCampaign',
+        element: <PrivateRoute><MyDonationCampaign></MyDonationCampaign></PrivateRoute>
+      },
+      {
+        path: 'myDonation',
+        element: <PrivateRoute><MyDonation></MyDonation></PrivateRoute>
+      },
+      {
+        path: 'allcampaigns',
+        element: <PrivateRoute><AllCampaigns></AllCampaigns></PrivateRoute>
+      },
+      {
+        path: 'updateCampaign/:id',
+        element: <UpdateCampaign></UpdateCampaign>,
+        loader: ({ params }) => fetch(`http://localhost:5000/campaigns/${params.id}`)
+      },
+      {
+        path: 'allpets',
+        element: <AdminRoute><AllPets></AllPets></AdminRoute>
+      },
+      {
+        path: 'updatePet/:id',
+        element: <UpdatePet></UpdatePet>,
+        loader: ({ params }) => fetch(`http://localhost:5000/pets/${params.id}`)
+      },
+      {
+        path: 'users',
+        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+      }
+    ]
+  }
+]);

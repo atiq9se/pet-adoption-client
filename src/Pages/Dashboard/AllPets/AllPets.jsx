@@ -2,7 +2,6 @@ import React from 'react';
 import usePets from '../../../hooks/usePets';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
-import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -12,7 +11,6 @@ import { Helmet } from 'react-helmet-async';
 const AllPets = () => {
     const [pets, , refetch] = usePets();
     const axiosSecure = useAxiosSecure();
-
 
     const handleDeletePet = (pet) => {
         Swal.fire({
@@ -26,10 +24,7 @@ const AllPets = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 const res = await axiosSecure.delete(`/pets/${pet._id}`);
-                console.log(res.data);
 
-                // axiosSecure.delete(`/users/${user._id}`)
-                //     .then(res => {
                 refetch();
                 Swal.fire({
                     position: "top-end",
@@ -38,7 +33,7 @@ const AllPets = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                // })
+              
             }
         });
     }
@@ -48,16 +43,15 @@ const AllPets = () => {
             <Helmet>
                 <title>All Pet </title>
             </Helmet>
-            <h2>All Pets</h2>
+            
+            <h3 className='lg:text-4xl text-xl text-center font-bold py-8'>All Pets List</h3>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
                     <thead>
                         <tr>
                             <th>
-                                <label>
-                                    <input type="checkbox" className="checkbox" />
-                                </label>
+                                #
                             </th>
                             <th>Name</th>
                             <th>Category</th>
@@ -89,7 +83,7 @@ const AllPets = () => {
                                         </div>
                                     </td>
                                     <td>
-                                        <button className="btn btn-ghost btn-xs">adoption{pet.adoption_status}</button>
+                                        <button className="btn btn-ghost btn-xs">{pet.adoption_status}</button>
                                     </td>
                                     <td>
                                         <Link to={`/dashboard/updatePet/${pet._id}`}><button onClick={() => handleDeleteUpdate(pet)} className="btn btn-ghost"><FaEdit className="text-orange-600"></FaEdit></button></Link>

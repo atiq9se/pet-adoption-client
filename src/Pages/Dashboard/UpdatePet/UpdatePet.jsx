@@ -57,33 +57,6 @@ const UpdatePet = () => {
                 });
             }
         }
-        console.log(res.data)
-        // const service_photo = data.service_photo;
-        // const service_name = data.service_name;
-        // const price = data.price;
-        // const service_area = data.service_area;
-        // const description = data.description;
-        // const provider_name = user.displayName;
-        // const provider_email = user.email;
-        // const provider_image = user.photoURL;
-        // const newService = { service_photo, service_name, price, service_area, description, provider_name, provider_email, provider_image }
-
-        // fetch('https:/services', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(newService)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         Swal.fire({
-        //             title: "Service adding Successfully",
-        //             icon: "success"
-        //         });
-
-        //     })
-        // navigate('/pet')
 
     }
 
@@ -152,15 +125,6 @@ const UpdatePet = () => {
                                 <textarea defaultValue={long_description} {...register('long_description', { required: true })} className="textarea textarea-bordered text-blue-800" placeholder="Description" required></textarea>
                                 {errors.long_description?.type === 'required' && <p className="text-red-600">Long Description is required</p>}
                             </div>
-                            {/* <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text text-cyan-500"> Date Time</span>
-                                </label>
-                                <input type="date" {...register('time', { required: true })} name="taking_date" placeholder="Service Taking Date" className="input input-bordered text-blue-800" required />
-                                <input type="time" {...register('time', { required: true })} name="taking_date" placeholder="Service Taking Date" className="input input-bordered text-blue-800" required />
-                                {errors.time?.type === 'required' && <p className="text-red-600">Time area is required</p>}
-                            </div> */}
-
 
                             <div className="form-control">
                                 <label className="label">

@@ -24,17 +24,17 @@ const CreateDonationCampaign = () => {
     const axiosSecure = useAxiosSecure();
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const onSubmit = async(data) => {
+    const onSubmit = async (data) => {
         console.log(data);
-        const imageFile = {image: data.image[0]}
-        const res = await axiosPublic.post(image_hosting_api, imageFile,{
+        const imageFile = { image: data.image[0] }
+        const res = await axiosPublic.post(image_hosting_api, imageFile, {
             headers: {
                 'content-type': 'multipart/form-data'
             }
         });
-        if(res.data.success){
-            const campaignItem ={
-                name:data.name,
+        if (res.data.success) {
+            const campaignItem = {
+                name: data.name,
                 image: res.data.data.display_url,
                 donation_amount: parseFloat(data.donation_amount),
                 last_date: data.last_date,
@@ -48,7 +48,7 @@ const CreateDonationCampaign = () => {
             }
             const campaignsRes = await axiosSecure.post('/campaigns', campaignItem);
             console.log(campaignsRes.data)
-            if(campaignsRes.data.insertedId){
+            if (campaignsRes.data.insertedId) {
                 reset();
                 Swal.fire({
                     position: "top-end",
@@ -56,7 +56,7 @@ const CreateDonationCampaign = () => {
                     title: 'Create Donation Campaign is added successfully',
                     showConfirmButton: false,
                     timer: 1500
-                  });
+                });
             }
         }
         console.log(res.data)
@@ -71,14 +71,14 @@ const CreateDonationCampaign = () => {
             <div className="hero px-5">
                 <div className="card w-full shadow-2xl my-8 z-10">
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-                        <h3 className="text-center text-cyan-600 font-bold md:text-3xl text-xl mb-4">Create Donation Campaign</h3>
+                        <h3 className="text-center font-bold md:text-3xl text-xl mb-4">Create Donation Campaign</h3>
                         <div className="grid md:grid-cols-3 grid-cols-1 gap-6">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text text-cyan-500">Pet Picture</span>
                                 </label>
                                 <input type="file" {...register("image",
-                                    { required: true}
+                                    { required: true }
                                 )} placeholder="Pet Image URL" className="input input-bordered text-blue-800" />
                                 {errors.image?.type === 'required' && <p className="text-red-600">Pet photo is required</p>}
                             </div>
@@ -114,14 +114,14 @@ const CreateDonationCampaign = () => {
                                 <label className="label">
                                     <span className="label-text text-cyan-500">Long Description</span>
                                 </label>
-                                <EditorProvider extensions={extensions}>
-      <FloatingMenu editor={null}>This is the floating menu</FloatingMenu>
-      <BubbleMenu editor={null}>This is the bubble menu</BubbleMenu>
-    </EditorProvider>
+                                {/* <EditorProvider extensions={extensions}>
+                                    <FloatingMenu editor={null}>This is the floating menu</FloatingMenu>
+                                    <BubbleMenu editor={null}>This is the bubble menu</BubbleMenu>
+                                </EditorProvider> */}
                                 <textarea {...register('long_description', { required: true })} className="textarea textarea-bordered text-blue-800" placeholder="Description" required></textarea>
                                 {errors.long_description?.type === 'required' && <p className="text-red-600">Long Description is required</p>}
                             </div>
-                            
+
 
                             <div className="form-control">
                                 <label className="label">
@@ -141,7 +141,7 @@ const CreateDonationCampaign = () => {
                             </select>
                         </div>
                         <div className="mt-5 text-center">
-                            <input className="btn bg-red-400 border-none text-white px-20 text-center hover:bg-cyan-600" type="submit" value="Add Pet" />
+                            <input className="btn bg-red-400 border-none text-white px-20 text-center hover:bg-cyan-600" type="submit" value="Add Donation" />
                         </div>
                     </form>
                 </div >

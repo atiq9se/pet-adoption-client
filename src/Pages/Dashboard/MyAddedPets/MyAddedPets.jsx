@@ -35,10 +35,7 @@ const MyAddedPets = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 const res = await axiosSecure.delete(`/pets/${pet._id}`);
-                console.log(res.data);
 
-                // axiosSecure.delete(`/users/${user._id}`)
-                //     .then(res => {
                 refetch();
                 Swal.fire({
                     position: "top-end",
@@ -47,7 +44,7 @@ const MyAddedPets = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                // })
+               
             }
         });
     }
@@ -57,7 +54,7 @@ const MyAddedPets = () => {
             <Helmet>
                 <title>My added Pet </title>
             </Helmet>
-            <h2> MY ADDED PETS</h2>
+            <h3 className='lg:text-4xl text-xl text-center font-bold py-8'>MY ADDED PETS</h3>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
@@ -96,7 +93,7 @@ const MyAddedPets = () => {
                                         </div>
                                     </td>
                                     <td>
-                                        <button className="btn btn-ghost btn-xs">adoption{pet.adoption_status}</button>
+                                        <button className="btn btn-ghost btn-xs">{pet.adoption_status}</button>
                                     </td>
                                     <td>
                                         <Link to={`/dashboard/updatePet/${pet._id}`}><button className="btn btn-ghost"><FaEdit className="text-orange-600"></FaEdit></button></Link>

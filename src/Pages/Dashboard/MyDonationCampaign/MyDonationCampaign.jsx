@@ -23,7 +23,8 @@ const MyDonationCampaign = () => {
             <Helmet>
                 <title>My Donation Campaign </title>
             </Helmet>
-            <h2> My Donation Campaign List</h2>
+            <h3 className='lg:text-4xl text-xl text-center font-bold py-8'>My Donation Campaign List</h3>
+
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}

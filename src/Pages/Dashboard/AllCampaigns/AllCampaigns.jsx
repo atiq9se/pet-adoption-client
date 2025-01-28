@@ -1,7 +1,6 @@
 import React from 'react';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
-import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -23,10 +22,7 @@ const AllCampaigns = () => {
             }).then(async (result) => {
                 if (result.isConfirmed) {
                     const res = await axiosSecure.delete(`/campaigns/${campaign._id}`);
-                    console.log(res.data);
-    
-                    // axiosSecure.delete(`/users/${user._id}`)
-                    //     .then(res => {
+                  
                     refetch();
                     Swal.fire({
                         position: "top-end",
@@ -35,7 +31,7 @@ const AllCampaigns = () => {
                         showConfirmButton: false,
                         timer: 1500
                     });
-                    // })
+                    
                 }
             });
         }
@@ -45,16 +41,15 @@ const AllCampaigns = () => {
             <Helmet>
                 <title>All Donation Campaigns </title>
             </Helmet>
-            <h2>All Donation Campaigns</h2>
+
+            <h3 className='lg:text-4xl text-xl text-center font-bold py-8'>All Donation Campaigns</h3>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
                     <thead>
                         <tr>
                             <th>
-                                <label>
-                                    <input type="checkbox" className="checkbox" />
-                                </label>
+                               #
                             </th>
                             <th>Name</th>
                             <th>Maximum Donation Amount</th>
@@ -74,7 +69,7 @@ const AllCampaigns = () => {
                                     <td>
                                         {campaign.name}
                                     </td>
-                                    <td>{campaign.category}</td>
+                                    <td>{campaign.donation_amount}</td>
                                     <td>
                                         <div className="flex items-center gap-3">
                                             <div className="avatar">
@@ -87,10 +82,10 @@ const AllCampaigns = () => {
                                         </div>
                                     </td>
                                     <td>
-                                        Pasued
+                                        {campaign.last_date}
                                     </td>
                                     <td>
-                                        <button className="btn btn-ghost btn-xs">adoption{campaign.adoption_status}</button>
+                                        <button className="btn btn-ghost btn-xs">{campaign.paused_status}</button>
                                     </td>
                                     <td>
                                         <Link to={`/dashboard/updateCampaign/${campaign._id}`}><button className="btn btn-ghost"><FaEdit className="text-orange-600"></FaEdit></button></Link>

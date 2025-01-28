@@ -54,44 +54,18 @@ const AddPet = () => {
                   });
             }
         }
-        console.log(res.data)
-        // const service_photo = data.service_photo;
-        // const service_name = data.service_name;
-        // const price = data.price;
-        // const service_area = data.service_area;
-        // const description = data.description;
-        // const provider_name = user.displayName;
-        // const provider_email = user.email;
-        // const provider_image = user.photoURL;
-        // const newService = { service_photo, service_name, price, service_area, description, provider_name, provider_email, provider_image }
-
-        // fetch('https:/services', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(newService)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         Swal.fire({
-        //             title: "Service adding Successfully",
-        //             icon: "success"
-        //         });
-
-        //     })
-        // navigate('/pet')
-
     }
+
     return (
         <>
             <Helmet>
                 <title>Add Pet Pet-adoption</title>
             </Helmet>
+            <h3 className='lg:text-4xl text-xl text-center font-bold py-8'>Add a Pet</h3>
             <div className="hero px-5">
                 <div className="card w-full shadow-2xl my-8 z-10">
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-                        <h3 className="text-center text-cyan-600 font-bold md:text-3xl text-xl mb-4">ADD Pet</h3>
+                        
                         <div className="grid md:grid-cols-3 grid-cols-1 gap-6">
                             <div className="form-control">
                                 <label className="label">
@@ -126,8 +100,9 @@ const AddPet = () => {
                                     <option disabled value="default">Select a category</option>
                                     <option value="dog">Dog</option>
                                     <option value="cat">Cat</option>
-                                    <option value="fish">Fish</option>
                                     <option value="rabbit">Rabbit</option>
+                                    <option value="horses">Horses</option>
+                                    <option value="goats">Goats</option>
                                 </select>
                             </div>
 
