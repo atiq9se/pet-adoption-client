@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import useCampaigns from "../../hooks/useCampaigns";
 import { Link } from "react-router-dom";
+import Skeleton from "react-loading-skeleton";
 
 
 const DonationCampaigns = () => {
@@ -23,8 +24,8 @@ const DonationCampaigns = () => {
                     alt="Shoes" />
                 </figure>
                 <div className="card-body">
-                  <h2 className="card-title">{campaign.name}</h2>
-                  <p>Maximum Amount: {campaign.donation_amount}</p>
+                  <h2 className="card-title">{campaign.name || <Skeleton count={3}/> }</h2>
+                  <p>Maximum Amount: {campaign.donation_amount || <Skeleton count={3}/>}</p>
                   <div className="card-actions justify-end">
                      <Link to={`/campaignDetails/${campaign._id}`} className="btn bg-teal-400 text-xl">Details</Link>
                   </div>

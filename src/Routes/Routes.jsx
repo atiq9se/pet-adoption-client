@@ -32,6 +32,14 @@ export const router = createBrowserRouter([
         element: <Home></Home>
       },
       {
+        path: '/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/register',
+        element: <Register></Register>
+      },
+      {
         path: '/petListing',
         element: <PetListing></PetListing>
         
@@ -40,14 +48,6 @@ export const router = createBrowserRouter([
         path: '/petDetails/:id',
         element: <PetDetails></PetDetails>,
         loader: ({ params }) => fetch(`http://localhost:5000/pets/${params.id}`)
-      },
-      {
-        path: '/login',
-        element: <Login></Login>
-      },
-      {
-        path: '/register',
-        element: <Register></Register>
       },
       {
         path: '/donation-campaigns',
