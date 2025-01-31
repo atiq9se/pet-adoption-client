@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import logo from '../../../../src/assets/logo.png'
 
 import { CiShoppingCart } from "react-icons/ci";
 import useAuth from "../../../hooks/useAuth";
@@ -77,7 +78,7 @@ const Navbar = () => {
                         {navOptions}
                     </ul>
                 </div>
-                <Link to='/' className="text-xl font-bold">Pet Adoption </Link>
+                <Link to='/' className="text-xl font-bold"><img src={logo} alt="" className="md:w-60 w-48"/> </Link>
             </div>
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
