@@ -2,7 +2,7 @@
 
 const PrivacyPolicy = () => {
     return (
-        <div className="lg:px-24 md:px-12 px-6 py-12 mt-8">
+        <div className="lg:px-24 md:px-12 px-6 py-12">
             <div className=''>
                 <div>
                     <h3 className='lg:text-4xl text-xl text-center font-bold mb-4'

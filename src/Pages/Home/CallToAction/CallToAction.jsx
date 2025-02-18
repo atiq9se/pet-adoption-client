@@ -4,8 +4,8 @@ import actionThree from '../../../assets/action/actionthree.webp'
 
 const CallToAction = () => {
     return (
-        <div className="lg:px-24 md:px-12 px-6 py-12 mt-8">
-                <h2 className='lg:text-4xl text-xl text-center font-bold mb-8 mt-8'>Call To Action</h2>
+        <div className="lg:px-24 md:px-12 px-6 py-12">
+                <h2 className='lg:text-3xl text-xl text-center font-bold mb-8'>Call To Action</h2>
                 <div className='grid md:grid-cols-3 grid-cols-1 gap-4'>
                     <div className="card bg-base-100 shadow-xl">
                         <figure>

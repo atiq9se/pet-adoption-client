@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom'
 
 const Category = () => {
     return (
-        <div className="lg:px-24 md:px-12 px-6 py-12 mt-8">
-            <h2 className='text-center md:text-5xl text-xl pb-8'>ALL PET ADOPTION CATEGORY</h2>
+        <div className="lg:px-24 md:px-12 px-6 py-12 mt-6">
+            <h2 className='text-center md:text-3xl text-xl font-bold pb-8'>ALL PET ADOPTION CATEGORY</h2>
             <div className='grid md:grid-cols-5 grid-cols-1 gap-5'>
                 <Link to='/petListing' className="card bg-base-100 shadow-xl">
                     <figure>
