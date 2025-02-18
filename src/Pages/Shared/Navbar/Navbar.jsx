@@ -40,8 +40,11 @@ const Navbar = () => {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/petListing'>Pet Listing</Link></li>
         <li><Link to='/donation-campaigns'>Donation Campaigns</Link></li>
+        <li><Link to='/privacy-policy'>Privacy Policy</Link></li>
         {
-            user ?  <li>
+            user ?  
+            
+            <li>
             <details>
               <summary><img src={user.photoURL} alt="" className="w-8 h-8 rounded-full" /></summary>
               <ul className="p-2">
@@ -53,9 +56,8 @@ const Navbar = () => {
         }
     </>
 
-
     return (
-        <div className="navbar z-10 bg-base-100 lg:px-24 md:px-12 px-6">
+        <div className="navbar sticky top-0 z-10 bg-teal-100 lg:px-24 md:px-12 px-6">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

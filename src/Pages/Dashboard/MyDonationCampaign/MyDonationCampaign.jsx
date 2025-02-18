@@ -12,7 +12,7 @@ const MyDonationCampaign = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/mycampaigns?email=${user.email}`)
+        fetch(`https://b10-a12-server-omega.vercel.app/mycampaigns?email=${user.email}`)
             .then(res => res.json())
             .then(data => setCampaigns(data))
 

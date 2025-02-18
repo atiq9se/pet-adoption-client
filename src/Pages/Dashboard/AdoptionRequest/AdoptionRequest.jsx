@@ -14,7 +14,7 @@ const AdoptionRequest = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/adoptionRequest?email=${user.email}`)
+        fetch(`https://b10-a12-server-omega.vercel.app/adoptionRequest?email=${user.email}`)
             .then(res => res.json())
             .then(data => setAdoptions(data))
 

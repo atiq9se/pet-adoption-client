@@ -16,7 +16,7 @@ const MyAddedPets = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/myAddedPets?email=${user.email}`)
+        fetch(`https://b10-a12-server-omega.vercel.app/myAddedPets?email=${user.email}`)
             .then(res => res.json())
             .then(data => setPets(data))
 

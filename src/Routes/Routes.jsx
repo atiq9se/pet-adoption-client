@@ -21,6 +21,7 @@ import AdoptionRequest from "../Pages/Dashboard/AdoptionRequest/AdoptionRequest"
 import MyDonation from "../Pages/Dashboard/MyDonation/MyDonation";
 import PetDetails from "../Pages/PetDetails/PetDetails";
 import CampaignDetails from "../Pages/CampaignDetails/CampaignDetails";
+import PrivacyPolicy from "../Pages/Home/PrivacyPolicy/PrivacyPolicy";
 
 export const router = createBrowserRouter([
   {
@@ -47,16 +48,21 @@ export const router = createBrowserRouter([
       {
         path: '/petDetails/:id',
         element: <PetDetails></PetDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/pets/${params.id}`)
+        loader: ({ params }) => fetch(`https://b10-a12-server-omega.vercel.app/pets/${params.id}`)
       },
       {
         path: '/donation-campaigns',
         element: <DonationCampaigns></DonationCampaigns>
       },
       {
+        path: '/privacy-policy',
+        element: <PrivacyPolicy></PrivacyPolicy>
+        
+      },
+      {
         path: '/campaignDetails/:id',
         element: <CampaignDetails></CampaignDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/campaigns/${params.id}`)
+        loader: ({ params }) => fetch(`https://b10-a12-server-omega.vercel.app/campaigns/${params.id}`)
       },
     ]
   },
@@ -96,7 +102,7 @@ export const router = createBrowserRouter([
       {
         path: 'updateCampaign/:id',
         element: <UpdateCampaign></UpdateCampaign>,
-        loader: ({ params }) => fetch(`http://localhost:5000/campaigns/${params.id}`)
+        loader: ({ params }) => fetch(`https://b10-a12-server-omega.vercel.app/campaigns/${params.id}`)
       },
       {
         path: 'allpets',
@@ -105,7 +111,7 @@ export const router = createBrowserRouter([
       {
         path: 'updatePet/:id',
         element: <UpdatePet></UpdatePet>,
-        loader: ({ params }) => fetch(`http://localhost:5000/pets/${params.id}`)
+        loader: ({ params }) => fetch(`https://b10-a12-server-omega.vercel.app/pets/${params.id}`)
       },
       {
         path: 'users',
