@@ -1,4 +1,5 @@
 import { FaFacebookF, FaTwitter, FaYoutube } from "react-icons/fa";
+import logo from '../../../../src/assets/logo.png'
 
 const Footer = () => {
     return (
@@ -6,10 +7,8 @@ const Footer = () => {
 
             <footer className="footer bg-neutral text-neutral-content p-10">
                 <aside>
-
-                    <p>
-                        Pet adaption.
-                        <br />
+                    <img src={logo} alt="" className="w-72" />
+                    <p className="md:text-xl text-lg">
                         Mohammadpur, Dhaka.
                     </p>
                 </aside>

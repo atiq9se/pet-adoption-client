@@ -26,7 +26,7 @@ const DonationCampaigns = () => {
                 <div className="card-body">
                   <h2 className="card-title">{campaign.name || <Skeleton count={3}/> }</h2>
                   <p>Maximum Amount: {campaign.donation_amount || <Skeleton count={3}/>}</p>
-                  <div className="card-actions justify-end">
+                  <div className="card-actions justify-center">
                      <Link to={`/campaignDetails/${campaign._id}`} className="btn bg-teal-400 text-xl">Details</Link>
                   </div>
                 </div>

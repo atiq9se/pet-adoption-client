@@ -14,32 +14,32 @@ const Category = () => {
                     <figure>
                         <img src={dog} alt="" />
                     </figure>
-                    <div className="card-body">
-                        <h2 className="card-title">Dog</h2>
+                    <div className="">
+                        <h2 className="font-bold md:text-2xl py-1 text-lg text-center">Dog</h2>
                     </div>
                 </Link>
                 <Link to='/petListing' className="card bg-base-100 shadow-xl">
                     <figure>
                         <img src={cat} alt="" />
                     </figure>
-                    <div className="card-body">
-                        <h2 className="card-title">Cat</h2>
+                    <div className="">
+                        <h2 className="font-bold md:text-2xl py-1 text-lg text-center">Cat</h2>
                     </div>
                 </Link>
                 <Link to='/petListing' className="card bg-base-100 shadow-xl">
                     <figure>
                     <img src={rabbit} alt="" />
                     </figure>
-                    <div className="card-body">
-                        <h2 className="card-title">Rabbit</h2>
+                    <div className="">
+                        <h2 className="font-bold md:text-2xl py-1 text-lg text-center">Rabbit</h2>
                     </div>
                 </Link>
                 <Link to='/petListing' className="card bg-base-100 shadow-xl">
                     <figure>
                         <img src={horses} alt="" />
                     </figure>
-                    <div className="card-body">
-                        <h2 className="card-title">Horses</h2>
+                    <div className="">
+                        <h2 className="font-bold md:text-2xl py-1 text-lg text-center">Horses</h2>
                     </div>
                 </Link>
                 <Link to='/petListing' className="card bg-base-100 shadow-xl">
@@ -47,8 +47,8 @@ const Category = () => {
                     <img src={goats} alt="" />
                     </figure>
                     
-                    <div className="card-body">
-                        <h2 className="card-title font-bold">Goats</h2>
+                    <div className="">
+                        <h2 className="font-bold md:text-2xl py-1 text-lg text-center">Goats</h2>
                     </div>
                 </Link>
             </div>

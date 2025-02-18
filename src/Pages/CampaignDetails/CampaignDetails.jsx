@@ -21,22 +21,20 @@ const CampaignDetails = () => {
             <Helmet>
                 <title>Campaign Details</title>
             </Helmet>
-
-
-            <h3 className='lg:text-4xl text-xl text-center font-bold py-8'>Donation Campaign Details werw</h3>
+            <h3 className='lg:text-4xl text-xl text-center font-bold pt-8'>Donation Campaign Details</h3>
             <div className='lg:px-24 md:px-12 px-6 py-12 flex justify-center'>
-                <div className="card md:w-1/2 w-full bg-base-100  shadow-xl">
-                    <figure>
+                <div className="card w-full bg-base-100 shadow-xl grid grid-cols-2 overflow-hidden">
+                    <div>
                         <img
                             src={image}
                             alt="pet img" className="w-full" />
-                    </figure>
-                    <div className="card-body">
-                        <h2 className="card-title">{name || <Skeleton count={3} />}</h2>
-                        <p>Maximum Donation Amount: {donation_amount || <Skeleton />}</p>
-                        <p>Last Date: {last_date || <Skeleton count={3} />}</p>
-                        <p>Short Description: {short_description || <Skeleton count={3} />} </p>
-                        <p>Long Description: {long_description || <Skeleton count={3} />} </p>
+                    </div>
+                    <div className="p-8">
+                        <h2 className="md:text-3xl font-bold pb-4 text-lg">{name || <Skeleton count={3} />}</h2>
+                        <p className="text-xl">Maximum Donation Amount: <span className="text-teal-500 font-bold md:text-2xl text-xl">{donation_amount || <Skeleton />} Tk</span></p>
+                        <p className="pb-3"><span className="font-bold">Last Date:</span> {last_date || <Skeleton count={3} />}</p>
+                        <p className="font-bold"> {short_description || <Skeleton count={3} />} </p>
+                        <p className="pb-2"> {long_description || <Skeleton count={3} />} </p>
                         <div className="card-actions justify-center mt-4">
                             <button className="btn bg-teal-400 text-xl" onClick={() => document.getElementById('my_modal_5').showModal()}>Donate Now</button>
                         </div>
