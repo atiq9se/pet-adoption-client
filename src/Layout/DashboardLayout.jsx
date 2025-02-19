@@ -1,14 +1,19 @@
 import { FaAd, FaCalendar, FaDog, FaEnvelope, FaHome, FaList, FaSearch, FaShoppingCart, FaUser } from "react-icons/fa";
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
+import DashboardNavbar from "../Pages/Shared/Navbar/DashboardNavbar";
+import logo from '../../src/assets/logo.png'
 
 
 const DashboardLayout = () => {
     const [isAdmin] = useAdmin();
 
     return (
-        <div className="flex flex-wrap gap-8">
-            <div className="w-64 min-h-full bg-teal-400">
+
+
+        <div className="flex flex-wrap">
+            <div className="w-64 min-h-full bg-teal-200">
+            <Link to='/' className="text-xl font-bold"><img src={logo} alt="" className="md:w-60 w-48"/> </Link>
                 <ul className="menu">
                     {
                         isAdmin ? <>
@@ -32,6 +37,7 @@ const DashboardLayout = () => {
                 </ul>
             </div>
             <div className="flex-1">
+                <DashboardNavbar></DashboardNavbar>
                 <Outlet></Outlet>
             </div>
         </div>
