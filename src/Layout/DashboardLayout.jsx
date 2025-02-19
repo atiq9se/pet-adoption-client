@@ -12,8 +12,9 @@ const DashboardLayout = () => {
 
 
         <div className="flex flex-wrap">
-            <div className="w-64 min-h-full bg-teal-200">
-            <Link to='/' className="text-xl font-bold"><img src={logo} alt="" className="md:w-60 w-48"/> </Link>
+            <div className="w-64 min-h-full bg-teal-200 h-screen">
+            <Link to='/' className="text-xl font-bold"><img src={logo} alt="" className="md:w-60 w-48 pt-8 px-2"/> </Link>
+            <div className="divider"></div>
                 <ul className="menu">
                     {
                         isAdmin ? <>
@@ -31,9 +32,6 @@ const DashboardLayout = () => {
                                 <li> <NavLink to="/dashboard/myDonation"><FaList></FaList>My Donations</NavLink></li>
                             </>
                     }
-
-                    <div className="divider"></div>
-                    <li> <NavLink to="/"><FaHome></FaHome> Home</NavLink></li>
                 </ul>
             </div>
             <div className="flex-1">

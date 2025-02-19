@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import logo from '../../../../src/assets/logo.png'
 
 import { CiShoppingCart } from "react-icons/ci";
@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 
 const DashboardNavbar = () => {
     const { user, logOut } = useAuth();
+    const navigate =useNavigate();
   
 
     const handleSignOut = () => {
@@ -30,6 +31,7 @@ const DashboardNavbar = () => {
                       `
                     }
                   });
+                   navigate('/login')
              })
             .catch(errors => console.log(errors))
     }
@@ -41,11 +43,11 @@ const DashboardNavbar = () => {
             <li>
             <details>
               <summary><img src={user.photoURL} alt="" className="w-8 h-8 rounded-full" /></summary>
-              <ul className="p-2">
+              <ul className="">
                 <li><button onClick={handleSignOut}>Logout</button></li>
               </ul>
             </details>
-          </li> : <><li><Link to='/login'>Login</Link></li></>
+          </li> : <></>
         }
     </>
 
