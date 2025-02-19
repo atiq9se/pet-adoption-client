@@ -23,7 +23,7 @@ const CampaignDetails = () => {
             </Helmet>
             <h3 className='lg:text-4xl text-xl text-center font-bold pt-8'>Donation Campaign Details</h3>
             <div className='lg:px-24 md:px-12 px-6 py-12 flex justify-center'>
-                <div className="card w-full bg-base-100 shadow-xl grid grid-cols-2 overflow-hidden">
+                <div className="card w-full bg-base-100 shadow-xl grid md:grid-cols-2 grid-cols-1 overflow-hidden">
                     <div>
                         <img
                             src={image}
