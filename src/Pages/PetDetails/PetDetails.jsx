@@ -61,18 +61,16 @@ const PetDetails = () => {
             </Helmet>
             <h3 className='lg:text-4xl text-xl text-center font-bold py-8'>Pet Details</h3>
             <div className='lg:px-24 md:px-12 px-6 py-12 flex justify-center'>
-                <div className="card md:w-1/2 w-full bg-base-100  shadow-xl">
-                    <figure>
+                <div className="grid md:grid-cols-2 grid-cols-1 overflow-hidden bg-base-100  shadow-xl">
                         <img
                             src={image}
                             alt="pet img" className="w-full" />
-                    </figure>
-                    <div className="card-body">
-                        <h2 className="card-title">{name || <Skeleton count={3} />}</h2>
-                        <p>Age: {age || <Skeleton />}</p>
-                        <p>Location: {location || <Skeleton count={3} />}</p>
-                        <p>Category: {category || <Skeleton count={3} />}</p>
-                        <p>Short Description: {short_description || <Skeleton count={3} />} </p>
+                    <div className="p-8">
+                        <h2 className="md:text-3xl font-bold text-lg">{name || <Skeleton count={3} />}</h2>
+                        <p className="font-bold pb-4">{age || <Skeleton />} Years</p>
+                        <p className="text-teal-500 font-bold md:text-2xl text-xl capitalize pb-2">{category || <Skeleton count={3} />}</p>
+                        <p className="text-xl pb-1">{location || <Skeleton count={3} />}</p>
+                        <p className="font-bold">{short_description || <Skeleton count={3} />} </p>
                         <p>Long Description: {long_description || <Skeleton count={3} />} </p>
                         <div className="card-actions justify-center mt-4">
                             <button className="btn bg-teal-400 text-xl" onClick={() => document.getElementById('my_modal_5').showModal()}>Adopt Button</button>
